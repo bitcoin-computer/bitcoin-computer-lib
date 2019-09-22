@@ -1,0 +1,24 @@
+{
+  "name": "@bitcoin-computer/bitcoin-computer",
+  "version": "0.1.0",
+  "description": "Smart Contracts on Bitcoin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitcoin-computer/bitcoin-computer.git"
+  },
+  "keywords": [
+    "Bitcoin",
+    "Smart Contracts",
+    "Javascript"
+  ],
+  "author": "Clemens Ley",
+  "license": "CC-BY-ND-3.0",
+  "bugs": {
+    "url": "https://github.com/bitcoin-computer/bitcoin-computer/issues"
+  },
+  "homepage": "https://github.com/bitcoin-computer/bitcoin-computer#readme"
+}
