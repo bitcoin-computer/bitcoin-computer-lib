@@ -1,6 +1,6 @@
 {
   "name": "@bitcoin-computer/bitcoin-computer",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "Smart Contracts on Bitcoin",
   "main": "computer-cjs.cjs",
   "module": "computer-es.mjs",
