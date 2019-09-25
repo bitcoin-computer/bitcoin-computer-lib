@@ -1,10 +1,8 @@
 {
   "name": "@bitcoin-computer/bitcoin-computer",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Smart Contracts on Bitcoin",
-  "main": "computer-cjs.cjs",
-  "module": "computer-es.mjs",
-  "type": "module",
+  "main": "index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
