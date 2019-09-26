@@ -8,15 +8,15 @@ Bitcoin|Computer is a platform for running smart contracts on Bitcoin, based on 
 
 **Scalability.** The cost of running a smart contract is independent of the computational work required. This allows you to run smart contracts that would cost millions on other platform at the cost of sending a payment.
 
-**Freedom**. Bitcoin|Computer works on Bitcoin<sup>\*</sup>, Bitcoin Cash, Bitcoin SV<sup>\*</sup>, Litecoin<sup>\*</sup>, and Dogecoin<sup>\*</sup>. We don't tell you what to do, we let you decide.
-
-<sup>\*</sup>coming soon
+**Freedom**. Bitcoin|Computer currently works on Bitcoin Cash, but we'll add support for Bitcoin, Litecoin, Bitcoin SV, and others soon. We don't tell you what to do, we let you decide.
 
 ## Getting Started
 
 ### Node
 
-In an empty directory run ``npm init -yes`` and ``npm i -s @bitcoin-computer/bitcoin-computer``. Create ``index.mjs`` as shown below. Replace the string "replace this seed" by your own seed phrase (eg from your wallet or from [here](https://iancoleman.io/bip39/)).
+In an empty directory run ``npm init -y && npm i -s bitcoin-computer``
+
+Create ``index.mjs`` as shown below. Replace the string *"replace this seed"* with your own seed phrase (eg from your wallet or from [here](https://iancoleman.io/bip39/)).
 
 ````
 import Computer from 'bitcoin-computer'
@@ -42,7 +42,9 @@ class Counter {
 })()
 ````
 
-Run the contract using ``node --experimental-modules index.mjs``. You will get an error "<code>Insufficient balance in address ...</code>". Send a small amount of Bitcoin Cash to the address, eg from a [Bitcoin Cash Faucet](https://free.bitcoin.com/). Run the contract again and if it worked you will see:
+Run the contract using ``node --experimental-modules index.mjs``. You will get an error message *"Insufficient balance in address \<your_address\>"*
+
+Send a small amount of Bitcoin Cash to *\<your_address\>*, eg from a [Bitcoin Cash Faucet](https://free.bitcoin.com/). Run the contract again and if it worked you will see:
 
 ````
 Counter {
@@ -52,16 +54,16 @@ Counter {
 }
 ````
 
-Congrats, you are now one of the first people to ever to run a smart contract on Bitcoin! Now go ahead and change the program above to create your own smart contrat.
+Congrats, you are now one of the first people to ever to run a smart contract on Bitcoin! Now go ahead and change the program above to create your own smart contract.
 
 ### Browser
 
-Instructions coming soon.
+Installation instructions for browsers coming soon.
 
 ## Supported features
 
-Eventually we want to support a large fragment Javascript. However, we are just getting started and currently the fragment is quite small. However already today it is large enought to support popular smart contracts like fungible tokens.
+Eventually we want to make it possible to deploy any smart contract on the Bitcoin|Computer. We are just getting started and we not quite there yet. However, already today the Bitcoin|Computer powerful enough to support popular smart contracts like non-fungible tokens.
 
-## Alpha Warning
+## Disclaimer
 
-We are just getting started. Expect bugs and issues. Don't put more Bitcion Cash into the system than you are willing to loose. If you have any problems, create and issue on the [Github repo](https://github.com/bitcoin-computer/computer).
+Expect bugs and issues. Don't put more Bitcion Cash into the Bitcoin|Computer than you are willing to loose. If you have any problems, please create an issue on [Github](https://github.com/bitcoin-computer/computer).
