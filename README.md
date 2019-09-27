@@ -110,9 +110,9 @@ parcel index.html
 
 Open your browser at `http://localhost:1234`. See the instructions for how to pick your own seed phrase and how to deal with the error message *"Insufficient balance in address \<your_address\>"*
 
-## Supported Features
+## Documentation
 
-Eventually we want to make it possible to deploy any smart contract on the Bitcoin|Computer. We are just getting started and we not quite there yet. However, already today the Bitcoin|Computer powerful enough to support popular smart contracts like non-fungible tokens.
+You can find more information in the [Bitcoin|Computer Docs](https://bitcoin-computer.gitbook.io/docs/)
 
 ## Disclaimer
 
