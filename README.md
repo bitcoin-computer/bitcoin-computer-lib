@@ -2,13 +2,14 @@
 
 <code>UNDER CONSTRUCTION</code>
 
-Bitcoin|Computer is a platform for running smart contracts on Bitcoin, based on the following principles
+Bitcoin|Computer is a Javascript library for running smart contracts on Bitcoin. It is
 
-**Simplicity.** Smart contracts are vanilla Javascript programs. If you know how to use Javascript you know how to use the Bitcoin|Computer.
+* **easy to learn** because smart contracts are vanilla Javascript programs
+* **cheap to use** because you can deploy and use a smart contract for under a penny
+* **flexible** because it will work on BTC, BCH, LTC, BSV. We currently support BCH but will add more coins soon
+* **fun** because it is a new way programming paradigm waiting to be explored
 
-**Scalability.** The cost of running a smart contract is independent of the computational work required. This allows you to run smart contracts that would cost millions on other platform at the cost of sending a payment.
-
-**Freedom**. Bitcoin|Computer currently works on Bitcoin Cash, but we'll add support for Bitcoin, Litecoin, Bitcoin SV, and others soon. We don't tell you what to do, we let you decide.
+For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
 
 ## Run in Node
 
@@ -16,7 +17,7 @@ In an empty directory run ``npm init -y && npm i -s bitcoin-computer``
 
 Create ``index.mjs`` as shown below. Replace the string *"replace this seed"* with your own seed phrase (eg from your wallet or from [here](https://iancoleman.io/bip39/)).
 
-```js
+```
 import Computer from 'bitcoin-computer'
 
 // the smart contract
@@ -41,7 +42,7 @@ Run the contract using `node --experimental-modules index.mjs`. You will get an 
 
 Send a small amount of Bitcoin Cash to *\<your_address\>*, eg from a [Bitcoin Cash Faucet](https://free.bitcoin.com/). Run the contract again and if it worked you will see:
 
-```json
+```
 Counter {
   n: 1,
   _owners: [ '028b43c3e12159179c...' ],
@@ -64,7 +65,7 @@ Create file `.babelrc`
 
 Create file ``index.html``
 
-```html
+```
 <html>
   <body>
     <script src="./index.js"></script>
@@ -75,7 +76,7 @@ Create file ``index.html``
 
 Create file ``index.js``
 
-```js
+```
 import Computer from 'bitcoin-computer';
 
 class Counter {
@@ -99,7 +100,7 @@ class Counter {
 
 Run the following in an empty directory
 
-```ShellSession
+```
 npm init -y
 npm i -s bitcoin-computer
 npm i -g parcel-bundler
@@ -114,6 +115,9 @@ Open your browser at `http://localhost:1234`. See the instructions for how to pi
 
 You can find more information in the [Bitcoin|Computer Docs](https://bitcoin-computer.gitbook.io/docs/)
 
-## Disclaimer
+## Getting Help
 
-Expect bugs and issues. Don't put more Bitcion Cash into the Bitcoin|Computer than you are willing to loose. If you have any problems, please create an issue on [Github](https://github.com/bitcoin-computer/computer).
+Bitcoin|Computer is in alpha stage, so there will be bugs. If you have any issues, please
+
+* ask a question in the [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg)
+* create and issue on [Github](https://github.com/bitcoin-computer/computer/issues)
