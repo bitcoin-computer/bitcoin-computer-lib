@@ -33,8 +33,7 @@ class Counter {
   const counter = await computer.new(Counter, [])
   await counter.inc()
   console.log(counter)
-  counter._close()
-  computer.close()
+  computer.shutdown()
 })()
 ```
 
@@ -93,8 +92,7 @@ class Counter {
   await counter.inc()
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
 
-  counter._close()
-  computer.close()
+  computer.shutdown()
 })()
 ```
 
