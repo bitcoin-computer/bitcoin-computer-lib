@@ -1,15 +1,6 @@
 # Bitcoin|Computer
 
-<code>UNDER CONSTRUCTION</code>
-
-Bitcoin|Computer is a Javascript library for running smart contracts on Bitcoin. It is
-
-* **easy to learn** because smart contracts are vanilla Javascript programs
-* **cheap to use** because you can deploy and use a smart contract for under a penny
-* **flexible** because it will work on BTC, BCH, LTC, BSV. We currently support BCH but will add more coins soon
-* **fun** because it is a new way programming paradigm waiting to be explored
-
-For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
+Bitcoin|Computer is a Javascript library for running smart contracts on Bitcoin. For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
 
 ## Run in Node
 
@@ -118,4 +109,4 @@ You can find more information in the [Bitcoin|Computer Docs](https://bitcoin-com
 Bitcoin|Computer is in alpha stage, so there will be bugs. If you have any issues, please
 
 * ask a question in the [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg)
-* create and issue on [Github](https://github.com/bitcoin-computer/computer/issues)
+* create an issue on [Github](https://github.com/bitcoin-computer/computer/issues)

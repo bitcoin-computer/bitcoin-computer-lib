@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-computer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Smart Contracts on Bitcoin",
   "main": "index.js",
   "scripts": {
