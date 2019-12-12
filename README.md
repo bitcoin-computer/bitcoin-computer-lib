@@ -1,6 +1,6 @@
 # Bitcoin|Computer
 
-Bitcoin|Computer is a Javascript library for running smart contracts on Bitcoin. For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
+Bitcoin|Computer is a Javascript library for running smart contracts on BitcoinSV and Bitcoin Cash. For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
 
 ## Run in Node
 
@@ -20,7 +20,10 @@ class Counter {
 
 // run the smart contract
 ;(async () => {
-  const computer = new Computer({ seed: 'replace this seed' })
+  const computer = new Computer({
+    seed: 'replace this seed',
+    chain: 'BSV' // 'BSV' and 'BCH' are currently supported
+  })
   const counter = await computer.new(Counter, [])
   await counter.inc()
   console.log(counter)
@@ -76,7 +79,8 @@ class Counter {
 
 ; (async () => {
   const computer = new Computer({
-    seed: 'replace this seed'
+    seed: 'replace this seed',
+    chain: 'BCH' // 'BSV' and 'BCH' are currently supported
   })
   const counter = await computer.new(Counter, [])
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
