@@ -1,6 +1,6 @@
 # Bitcoin|Computer
 
-Bitcoin|Computer is a Javascript library for running smart contracts on BitcoinSV and Bitcoin Cash. For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
+Bitcoin|Computer is a library for running smart contracts on BitcoinSV and Bitcoin Cash. For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
 
 ## Run in Node
 
