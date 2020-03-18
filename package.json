@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-computer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Smart Contracts on Bitcoin",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/bitcoin-computer/bitcoin-computer#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "bitcoinsource": "^0.1.16",
+    "bitcoinsource": "^0.1.17",
     "eventemitter3": "^3.1.2",
     "socket.io-client": "^2.3.0"
   }
