@@ -22,7 +22,8 @@ class Counter {
 ;(async () => {
   const computer = new Computer({
     seed: 'replace this seed',
-    chain: 'BSV' // 'BSV' and 'BCH' are currently supported
+    chain: 'BSV', // BSV or BCH
+    network: 'livenet' // testnet or livenet
   })
   const counter = await computer.new(Counter, [])
   await counter.inc()
@@ -80,7 +81,8 @@ class Counter {
 ; (async () => {
   const computer = new Computer({
     seed: 'replace this seed',
-    chain: 'BCH' // 'BSV' and 'BCH' are currently supported
+    chain: 'BCH', // BSV or BCH
+    network: 'testnet' // testnet or livenet
   })
   const counter = await computer.new(Counter, [])
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
