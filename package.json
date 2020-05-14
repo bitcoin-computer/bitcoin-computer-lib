@@ -25,6 +25,8 @@
     "axios": "^0.18.0",
     "bitcoinsource": "^0.1.17",
     "eventemitter3": "^3.1.2",
-    "socket.io-client": "^2.3.0"
+    "isomorphic-ws": "^4.0.1",
+    "node-localstorage": "^2.1.6",
+    "ws": "^7.2.5"
   }
 }
