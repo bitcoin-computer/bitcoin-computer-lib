@@ -1,12 +1,15 @@
-# Bitcoin|Computer
+<img src="https://i.ibb.co/5WqkvWr/logo-orange-background.png" alt="logo" border="0" />
 
-Bitcoin|Computer is a library for running smart contracts on BitcoinSV and Bitcoin Cash. For details check out the [Bitcoin|Computer docs](https://bitcoin-computer.gitbook.io/docs).
+
+# Bitcoin Computer
+
+BitcoinComputer is a Javascript library for running smart contracts on Bitcoin. [bitcoincomputer.io](http://bitcoincomputer.io/)
 
 ## Run in Node
 
-In an empty directory run ``npm init -y && npm i -s bitcoin-computer``
+``npm init -y && npm i -s bitcoin-computer``
 
-Create ``index.mjs`` as shown below. Replace the string *"replace this seed"* with your own seed phrase (eg from your wallet or from [here](https://iancoleman.io/bip39/)).
+Create file ``index.mjs`` as shown below. Replace the string *"replace this seed"* with your own seed phrase (eg from your wallet or from [here](https://iancoleman.io/bip39/)).
 
 ```
 import Computer from 'bitcoin-computer'
@@ -23,7 +26,7 @@ class Counter {
   const computer = new Computer({
     seed: 'replace this seed',
     chain: 'BSV', // BSV or BCH
-    network: 'livenet' // testnet or livenet
+    network: 'testnet' // testnet or livenet
   })
   const counter = await computer.new(Counter, [])
   await counter.inc()
@@ -32,9 +35,12 @@ class Counter {
 })()
 ```
 
-Run the contract using `node --experimental-modules index.mjs`. You will get an error message *"Insufficient balance in address \<your_address\>"*
 
-Send a small amount of Bitcoin Cash to *\<your_address\>*, eg from a [Bitcoin Cash Faucet](https://free.bitcoin.com/). Run the contract again and if it worked you will see:
+### Send testnet coins to the computer
+
+To run the code you need to fund the Bitcoin wallet inside the computer object. Run the code using `node --experimental-modules index.mjs`. You will get an error message "Insufficient balance in address \<your_address\>".
+
+Send free testnet coins from a [Bitcoin SV faucet](https://faucet.bitcoincloud.net/) or a [Bitcoin Cash Faucet](https://developer.bitcoin.com/faucets/bch/) to \<your_address\>. Run the contract again and you will see:
 
 ```
 Counter {
@@ -43,8 +49,6 @@ Counter {
   _amount: 2000
 }
 ```
-
-Congrats, you are now one of the first people to ever to run a smart contract on Bitcoin! Now go ahead and change the program above to create your own smart contract.
 
 ## Run in the Browser
 
@@ -104,7 +108,7 @@ npm i -d @babel/plugin-transform-runtime
 parcel index.html
 ```
 
-Open your browser at `http://localhost:1234`. See the instructions for how to pick your own seed phrase and how to deal with the error message *"Insufficient balance in address \<your_address\>"*
+Open your browser at `http://localhost:1234`. See the instructions for how to pick your own seed phrase and how to fund the computer in the section [above](#-Run-in-Node)
 
 ## Documentation
 
