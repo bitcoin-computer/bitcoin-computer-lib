@@ -86,7 +86,8 @@ class Counter {
   const computer = new Computer({
     seed: 'replace this seed',
     chain: 'BCH', // BSV or BCH
-    network: 'testnet' // testnet or livenet
+    network: 'testnet', // testnet or livenet
+    path: 'm/44'/0'/0'/0' // defaults to "m/44'/0'/0'/0"
   })
   const counter = await computer.new(Counter, [])
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
@@ -120,3 +121,7 @@ Bitcoin|Computer is in alpha stage, so there will be bugs. If you have any issue
 
 * ask a question in the [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg)
 * create an issue on [Github](https://github.com/bitcoin-computer/computer/issues)
+
+## Breaking Changes
+
+* 0.3.0-alpha.10 -> 0.3.0-alpha.11: We changed the default wallet derivation path from the empty string to "m/44'/0'/0'/0". To use funds from a wallet created in version 0.3.0-alpha.10 or before, set the ```path``` option to the empty string when creating a computer object.
