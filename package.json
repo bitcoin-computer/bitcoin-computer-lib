@@ -1,10 +1,10 @@
 {
   "name": "bitcoin-computer",
-  "version": "0.3.0-alpha.16",
+  "version": "0.3.0-alpha.17",
   "description": "Smart Contracts on Bitcoin",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "BC_LOCAL_BBS=1 jest --setupFiles dotenv/config --config ./jest.config.json"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,17 @@
     "isomorphic-ws": "^4.0.1",
     "node-localstorage": "^2.1.6",
     "ws": "^7.2.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-flow": "^7.10.4",
+    "@types/jest": "^26.0.4",
+    "babel-jest": "^26.1.0",
+    "dotenv": "^5.0.1",
+    "jest": "^26.1.0",
+    "jest-cli": "^26.1.0",
+    "ts-jest": "^26.1.2",
+    "typescript": "^3.9.6"
   }
 }

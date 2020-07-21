@@ -1,0 +1,15 @@
+{
+  "testEnvironment": "node",
+  "testURL": "http://localhost/",
+  "transform": {
+    ".+\\.(js|jsx)$": "babel-jest",
+    ".+\\.(ts|tsx)$": "ts-jest"
+  },
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "json",
+    "node"
+  ]
+}
