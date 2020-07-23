@@ -17,7 +17,8 @@ npm test
 ````
 
 
-If you get an error "Insuffienct balance in \<your address\>" send free testnet coins to \<your address\> as explained in [Fund your computer](#-Fund-your-computer) below.
+If you get an error "Insuffienct balance in \<your address\>" send free testnet coins to \<your address\> as explained in
+<a href="#fund-your-computer">Fund Your Computer</a> below.
 
 ## Run in Node
 
@@ -56,13 +57,13 @@ Run the code using
 node --experimental-modules index.mjs
 ````
 
-If you get an error "Insuffienct funds in \<your address\>" have a look at the secion [Fund your computer](#-Fund-your-computer) below. Run the code again after funding the wallet and you will see:
+If you get an error "Insuffienct funds in \<your address\>" have a look at the secion <a href="#fund-your-computer">Fund Your Computer</a> below. Run the code again after funding the wallet and you will see:
 
 ```
 Counter {
   n: 1,
-  _owners: [ '028b43c3e12159179c...' ],
-  _amount: 2000
+  _id: '83553f27c9e4651323f1ebb...',
+  _rev: '290923708ca56ea448dd67...'
 }
 ```
 
@@ -82,33 +83,36 @@ Create file ``index.html``
 ```
 <html>
   <body>
-    <script src="./index.js"></script>
     <div id='el'></div>
+    <script src="./index.js"></script>
   </body>
 </html>
+
 ```
 
 Create file ``index.js``
 
 ```
-import Computer from 'bitcoin-computer';
+import Computer from 'bitcoin-computer'
 
 class Counter {
   constructor() { this.n = 0 }
   inc() { this.n += 1 }
 }
 
-; (async () => {
+
+;(async () => {
   const computer = new Computer({
     seed: 'replace this seed',
-    chain: 'BCH', // BSV or BCH
+    chain: 'BSV', // BSV or BCH
     network: 'testnet', // testnet or livenet
     path: "m/44'/0'/0'/0" // defaults to "m/44'/0'/0'/0"
   })
   const counter = await computer.new(Counter, [])
-  document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
+  document.getElementById("el").innerHTML = `Counter is ${counter.n}`
+
   await counter.inc()
-  document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
+  document.getElementById("el").innerHTML = `Counter is ${counter.n}`
 })()
 ```
 
