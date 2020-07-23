@@ -4,7 +4,7 @@
   "description": "Smart Contracts on Bitcoin",
   "main": "index.js",
   "scripts": {
-    "test": "BC_LOCAL_BBS=1 jest --setupFiles dotenv/config --config ./jest.config.json"
+    "test": "BC_LOCAL_BBS=1 jest --config ./jest.config.json --runInBand"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,6 @@
     "@babel/preset-flow": "^7.10.4",
     "@types/jest": "^26.0.4",
     "babel-jest": "^26.1.0",
-    "dotenv": "^5.0.1",
     "jest": "^26.1.0",
     "jest-cli": "^26.1.0",
     "ts-jest": "^26.1.2",

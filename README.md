@@ -3,13 +3,29 @@
 
 # Bitcoin Computer
 
-BitcoinComputer is a Javascript library for running smart contracts on Bitcoin. [bitcoincomputer.io](http://bitcoincomputer.io/)
+BitcoinComputer is a Javascript library for running smart contracts on Bitcoin. See [bitcoincomputer.io](http://bitcoincomputer.io/) for more documentation.
+
+## Run the Tests
+
+The easiest way to get started is to run the tests. In an empty directory run
+
+````
+git clone git@github.com:bitcoin-computer/computer.git
+cd computer
+npm install
+npm test
+````
+
+
+If you get an error "Insuffienct balance in \<your address\>" send free testnet coins to \<your address\> as explained in [Fund your computer](#-Fund-your-computer) below.
 
 ## Run in Node
 
+In an empty directory run
+
 ``npm init -y && npm i -s bitcoin-computer``
 
-Create file ``index.mjs`` as shown below. Replace the string *"replace this seed"* with your own seed phrase (eg from your wallet or from [here](https://iancoleman.io/bip39/)).
+Create file ``index.mjs`` as shown below.
 
 ```
 import Computer from 'bitcoin-computer'
@@ -31,16 +47,16 @@ class Counter {
   const counter = await computer.new(Counter, [])
   await counter.inc()
   console.log(counter)
-  computer.shutdown()
 })()
 ```
 
+Run the code using
 
-### Send testnet coins to the computer
+````
+node --experimental-modules index.mjs
+````
 
-To run the code you need to fund the Bitcoin wallet inside the computer object. Run the code using `node --experimental-modules index.mjs`. You will get an error message "Insufficient balance in address \<your_address\>".
-
-Send free testnet coins from a [Bitcoin SV faucet](https://faucet.bitcoincloud.net/) or a [Bitcoin Cash Faucet](https://developer.bitcoin.com/faucets/bch/) to \<your_address\>. Run the contract again and you will see:
+If you get an error "Insuffienct funds in \<your address\>" have a look at the secion [Fund your computer](#-Fund-your-computer) below. Run the code again after funding the wallet and you will see:
 
 ```
 Counter {
@@ -87,14 +103,12 @@ class Counter {
     seed: 'replace this seed',
     chain: 'BCH', // BSV or BCH
     network: 'testnet', // testnet or livenet
-    path: 'm/44'/0'/0'/0' // defaults to "m/44'/0'/0'/0"
+    path: "m/44'/0'/0'/0" // defaults to "m/44'/0'/0'/0"
   })
   const counter = await computer.new(Counter, [])
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
   await counter.inc()
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`;
-
-  computer.shutdown()
 })()
 ```
 
@@ -109,18 +123,24 @@ npm i -d @babel/plugin-transform-runtime
 parcel index.html
 ```
 
-Open your browser at `http://localhost:1234`. See the instructions for how to pick your own seed phrase and how to fund the computer in the section [above](#-Run-in-Node)
+Open your browser at `http://localhost:1234`. See the instructions for how to configure your own seed phrase and how to fund the computer in the sections below.
+
+## Configure Your Seed Phrase
+
+By default the bitcoin computer object uses the pass phrase "replace this seed" to initialize the wallet. If you want to use your own seed phrase, replace the string "replace this seed" with any bip39 compatible seed phrase or generate a new one [here](https://iancoleman.io/bip39/).
+
+## Fund Your Computer
+
+If you get an error message "Insufficient balance in address \<your_address\>" you need to fund the wallet inside the computer object. You can get free testnet coins from a [Bitcoin SV faucet](https://faucet.bitcoincloud.net/) or a [Bitcoin Cash Faucet](https://faucet.fullstack.cash/) and send them to \<your_address\>.
+
 
 ## Documentation
 
-You can find more information in the [Bitcoin|Computer Docs](https://bitcoin-computer.gitbook.io/docs/)
+You can find more information in the [Bitcoin Computer Docs](https://bitcoin-computer.gitbook.io/docs/)
 
 ## Getting Help
 
-Bitcoin|Computer is in alpha stage, so there will be bugs. If you have any issues, please
-
-* ask a question in the [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg)
-* create an issue on [Github](https://github.com/bitcoin-computer/computer/issues)
+If you have any issues ask a question in the [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg) or create an issue on [Github](https://github.com/bitcoin-computer/computer/issues).
 
 ## Breaking Changes
 
