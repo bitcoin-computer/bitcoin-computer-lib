@@ -87,7 +87,6 @@ Create file ``index.html``
     <script src="./index.js"></script>
   </body>
 </html>
-
 ```
 
 Create file ``index.js``
@@ -145,6 +144,16 @@ You can find more information in the [Bitcoin Computer Docs](https://bitcoin-com
 ## Getting Help
 
 If you have any issues ask a question in the [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg) or create an issue on [Github](https://github.com/bitcoin-computer/computer/issues).
+
+## Licence
+
+Code it licenced under [Attribution-NoDerivs 3.0 Unported](https://creativecommons.org/licenses/by-nd/3.0/). You are free to: Share, copy, and redistribute the material in any medium or format
+for any purpose, even commercially under the following terms:
+
+* Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+* NoDerivatives — If you remix, transform, or build upon the material, you may not distribute the modified material.
+
+This is a human-readable summary of (and not a substitute for) the [license](https://creativecommons.org/licenses/by-nd/3.0/legalcode).
 
 ## Breaking Changes
 
