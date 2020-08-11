@@ -156,5 +156,5 @@ for any purpose, even commercially under the following terms:
 This is a human-readable summary of (and not a substitute for) the [license](https://creativecommons.org/licenses/by-nd/3.0/legalcode).
 
 ## Breaking Changes
-
+* x.x.x-alpha.x -> 0.3.0-beta: Smart contracts deployed in an alpha version do not work in the beta version.
 * 0.3.0-alpha.10 -> 0.3.0-alpha.11: We changed the default wallet derivation path from the empty string to "m/44'/0'/0'/0". To use funds from a wallet created in version 0.3.0-alpha.10 or before, set the ```path``` option to the empty string when creating a computer object.
