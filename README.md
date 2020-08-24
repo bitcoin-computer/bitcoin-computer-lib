@@ -1,5 +1,6 @@
-<img src="https://i.ibb.co/5WqkvWr/logo-orange-background.png" alt="logo" border="0" />
-
+<p align="center">
+  <img src="https://i.ibb.co/VSkRyV1/logo-black-white-transparent.png" alt="logo" border="0" style="width:100px;height:100px;"/>
+</p>
 
 # Bitcoin Computer
 
