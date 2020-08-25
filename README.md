@@ -1,12 +1,94 @@
 <p align="center">
-  <img src="https://i.ibb.co/VSkRyV1/logo-black-white-transparent.png" alt="logo" border="0" style="width:100px;height:100px;"/>
+  <img src="https://i.ibb.co/rMnRhvQ/logo-black-white-transparent-small.png" alt="bitcoin-computer-logo" border="0" style="width:100px;height:100px;"/>
 </p>
 
 # Bitcoin Computer
 
-BitcoinComputer is a Javascript library for running smart contracts on Bitcoin. See [bitcoincomputer.io](http://bitcoincomputer.io/) for more documentation.
+BitcoinComputer is a Javascript library for running smart contracts on Bitcoin.
 
-## Run the Tests
+## Examples
+
+We give a few examples of smart contracts. See [bitcoincomputer.io](http://bitcoincomputer.io/) for more documentation.
+
+### Non-Fungible Token
+
+A non-fungible token is a Javascript class with some state. It has a constructor to initialize the state, a function to update the state, and a function to send the token to another user. The ``_owners`` controlls who may update the object. For more information see the [docs](https://docs.bitcoincomputer.io/key-concepts-1#data-ownership).
+
+````
+class Token {
+  constructor(state) {
+    this.state = state
+  }
+
+  setState(state) {
+    this.state = state
+  }
+
+  send(to) {
+    this._owners = [to]
+  }
+}
+````
+
+You can deploy a token and send it to another user by running the following code.
+
+````
+  // create Bitcoin Computer wallet
+  const computer = new Computer({
+    seed: 'replace this seed', // your BIP39 seed
+    chain: 'BSV' // BSV or BCH
+  })
+
+  // deploy the smart contract
+  const token = await computer.new(Token, ['some state'])
+
+  // send token to the user that has private key for ``publicKey``
+  const publicKey = '03223d...46d06c8dfe'
+  await token.send(publicKey)
+````
+
+### Fungible Token
+
+A fungible token consists of several instances of the ``Coin`` class. A coin object can hold a number of tokens. A coin can be split into two coins using the ``send`` function and the smart contract guarantees that no new tokens are created.
+
+````
+class Coin {
+  constructor(supply, to) {
+    this.tokens = supply
+    this._owners = [to]
+  }
+
+  send(amount, to) {
+    if(this.tokens < amount) throw new Error('insufficient funds')
+    this.tokens -= amount
+    return new Coin(amount, to)
+  }
+}
+````
+
+### Beyond Tokens
+
+While Bitcoin Computer can create many variants of custom tokens, it can do much more than that. It's a tool to make web application development easy. Below we show how a chat can be built on the Bitcoin Computer. The smart contract persists the objects and thus no separate database is needed to build an application.
+
+````
+class Chat {
+  constructor() {
+    this.messages = []
+  }
+
+  invite(publicKey) {
+    this._owners.push(publicKey)
+  }
+
+  post(messages) {
+    this.messages.push(message)
+  }
+}
+````
+
+## Getting Started
+
+### Run the Tests
 
 The easiest way to get started is to run the tests. In an empty directory run
 
@@ -21,13 +103,9 @@ npm test
 If you get an error "Insuffienct balance in \<your address\>" send free testnet coins to \<your address\> as explained in
 <a href="#fund-your-computer">Fund Your Computer</a> below.
 
-## Run in Node
+### Run in Node
 
-In an empty directory run
-
-``npm init -y && npm i -s bitcoin-computer``
-
-Create file ``index.mjs`` as shown below.
+In an empty directory run ``npm init -y && npm i -s bitcoin-computer``. Create file ``index.mjs`` as shown below.
 
 ```
 import Computer from 'bitcoin-computer'
@@ -68,7 +146,7 @@ Counter {
 }
 ```
 
-## Run in the Browser
+### Run in the Browser
 
 Create file `.babelrc`
 
@@ -129,11 +207,11 @@ parcel index.html
 
 Open your browser at `http://localhost:1234`. See the instructions for how to configure your own seed phrase and how to fund the computer in the sections below.
 
-## Configure Your Seed Phrase
+### Configure Your Seed Phrase
 
 By default the bitcoin computer object uses the pass phrase "replace this seed" to initialize the wallet. If you want to use your own seed phrase, replace the string "replace this seed" with any bip39 compatible seed phrase or generate a new one [here](https://iancoleman.io/bip39/).
 
-## Fund Your Computer
+### Fund Your Computer
 
 If you get an error message "Insufficient balance in address \<your_address\>" you need to fund the wallet inside the computer object. You can get free testnet coins from a [Bitcoin SV faucet](https://faucet.bitcoincloud.net/) or a [Bitcoin Cash Faucet](https://faucet.fullstack.cash/) and send them to \<your_address\>.
 
@@ -156,9 +234,9 @@ for any purpose, even commercially under the following terms:
 
 This is a human-readable summary of (and not a substitute for) the [license](https://creativecommons.org/licenses/by-nd/3.0/legalcode).
 
-## Beta Warning
+## Beta Notice
 
-We are in beta to indicate that there are known security vulnerabilities. Our main priority right now is to fix all security related issues. Once done will then remove the beta tag and start a bug bounty program to find all remaining bugs.
+We are in beta to indicate that there are known security vulnerabilities. Our priority is to fix all security related issues. Once done we will remove the beta tag and start a bug bounty program to find all remaining bugs.
 
 ## Breaking Changes
 * x.x.x-alpha.x -> 0.3.0-beta: Smart contracts deployed in an alpha version do not work in the beta version.
