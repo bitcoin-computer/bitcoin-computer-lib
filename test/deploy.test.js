@@ -36,6 +36,7 @@ describe('Deployment smoke tests', () => {
     expect(counter).toEqual({
       _id: expect.any(String),
       _rev: expect.any(String),
+      _rootId: expect.any(String),
       n: 3
     })
   }, 20000)
