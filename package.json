@@ -1,8 +1,8 @@
 {
   "name": "bitcoin-computer",
-  "version": "0.4.1-beta",
+  "version": "0.4.2-beta",
   "description": "Smart Contracts on Bitcoin",
-  "main": "index.js",
+  "main": "./bitcoin-computer.cjs.js",
   "scripts": {
     "test": "BC_LOCAL_BBS=1 jest --config ./jest.config.json --runInBand"
   },
