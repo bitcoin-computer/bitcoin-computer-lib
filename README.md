@@ -42,7 +42,7 @@ You can deploy a token and send it to another user by running the following code
   // deploy the smart contract
   const token = await computer.new(Token, ['some state'])
 
-  // send token to the user that has private key for ``publicKey``
+  // send token to another user
   const publicKey = '03223d...46d06c8dfe'
   await token.send(publicKey)
 ````
@@ -119,11 +119,11 @@ class Counter {
 
 // run the smart contract
 ;(async () => {
-  const computer = new Computer({
-    seed: 'replace this seed',
-    chain: 'BSV', // BSV or BCH
-    network: 'testnet' // testnet or livenet
-  })
+  const seed = 'replace this seed'
+  const chain = 'BSV'
+  const network = 'testnet'
+  const computer = new Computer({ seed, chain, network })
+
   const counter = await computer.new(Counter, [])
   await counter.inc()
   console.log(counter)
@@ -180,12 +180,11 @@ class Counter {
 
 
 ;(async () => {
-  const computer = new Computer({
-    seed: 'replace this seed',
-    chain: 'BSV', // BSV or BCH
-    network: 'testnet', // testnet or livenet
-    path: "m/44'/0'/0'/0" // defaults to "m/44'/0'/0'/0"
-  })
+  const seed = 'replace this seed'
+  const chain = 'BSV'
+  const network = 'testnet'
+  const computer = new Computer({ seed, chain, network })
+
   const counter = await computer.new(Counter, [])
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`
 
