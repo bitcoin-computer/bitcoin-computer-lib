@@ -1,4 +1,4 @@
-import Computer, { parseOutputData } from '../bitcoin-computer.umd'
+import { Computer, parseOutputData } from '../bitcoin-computer.umd'
 
 const opts = {
   seed: 'replace this seed', // use any bip39 passphrase, eg from https://iancoleman.io/bip39/

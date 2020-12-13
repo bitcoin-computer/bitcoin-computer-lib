@@ -1,4 +1,4 @@
-import Computer, { parseOutputData } from '../bitcoin-computer.cjs'
+import { Computer, parseOutputData } from '../bitcoin-computer.cjs'
 
 const opts = {
   seed: 'replace this seed', // use any bip39 passphrase, eg from https://iancoleman.io/bip39/

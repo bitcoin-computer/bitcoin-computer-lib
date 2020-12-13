@@ -108,7 +108,7 @@ If you get an error "Insuffienct balance in \<your address\>" send free testnet 
 In an empty directory run ``npm init -y && npm i -s bitcoin-computer``. Create file ``index.mjs`` as shown below.
 
 ```
-import Computer from 'bitcoin-computer'
+import { Computer } from 'bitcoin-computer'
 
 // the smart contract
 class Counter {
@@ -171,7 +171,7 @@ Create file ``index.html``
 Create file ``index.js``
 
 ```
-import Computer from 'bitcoin-computer'
+import { Computer } from 'bitcoin-computer'
 
 class Counter {
   constructor() { this.n = 0 }
@@ -238,5 +238,6 @@ This is a human-readable summary of (and not a substitute for) the [license](htt
 We are in beta to indicate that there are known security vulnerabilities. Our priority is to fix all security related issues. Once done we will remove the beta tag and start a bug bounty program to find all remaining bugs.
 
 ## Breaking Changes
+* 0.4.3-beta -> 0.4.4-beta: We have switched to a named export so you'll have to write ``import { Computer } from 'bitcoin-computer`` instead of ``import Computer from 'bitcoin-computer``
 * x.x.x-alpha.x -> 0.3.0-beta: Smart contracts deployed in an alpha version do not work in the beta version.
 * 0.3.0-alpha.10 -> 0.3.0-alpha.11: We changed the default wallet derivation path from the empty string to "m/44'/0'/0'/0". To use funds from a wallet created in version 0.3.0-alpha.10 or before, set the ```path``` option to the empty string when creating a computer object.
