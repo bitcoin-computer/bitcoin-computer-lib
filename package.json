@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/bitcoin-computer/bitcoin-computer#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bitcoinsource": "^0.1.19",
     "node-localstorage": "^2.1.6"
   },
