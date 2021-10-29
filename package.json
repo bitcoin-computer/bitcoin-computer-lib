@@ -24,8 +24,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bitcoinsource": "^0.1.19",
-    "node-localstorage": "^2.1.6",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "node-localstorage": "^2.1.6"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.10.4",
