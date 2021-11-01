@@ -1,7 +1,8 @@
-import { Computer, parseOutputData } from '../bitcoin-computer.cjs'
+import { Computer, parseOutData } from '../bitcoin-computer.cjs'
 
 const opts = {
-  seed: 'replace this seed', // use any bip39 passphrase, eg from https://iancoleman.io/bip39/
+  // use any bip39 passphrase, eg from https://iancoleman.io/bip39/
+  seed: 'travel upgrade inside soda birth essence junk merit never twenty system opinion',
   chain: 'BSV', //  'BSV' or 'BCH'
   network: 'testnet', // 'testnet' or 'mainnet'
 }
@@ -11,8 +12,8 @@ describe('Deployment smoke tests', () => {
     expect(Computer).toBeDefined()
     expect(typeof Computer).toBe('function')
 
-    expect(parseOutputData).toBeDefined()
-    expect(typeof parseOutputData).toBe('function')
+    expect(parseOutData).toBeDefined()
+    expect(typeof parseOutData).toBe('function')
   })
 
   test('computer object creation', async () => {
