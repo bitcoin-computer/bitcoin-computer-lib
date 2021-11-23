@@ -1,4 +1,4 @@
-import { Computer, parseOutData } from '../bitcoin-computer.cjs'
+import { Computer } from '../bitcoin-computer.cjs'
 
 const opts = {
   // use any bip39 passphrase, eg from https://iancoleman.io/bip39/
@@ -11,9 +11,6 @@ describe('Deployment smoke tests', () => {
   test('library export', () => {
     expect(Computer).toBeDefined()
     expect(typeof Computer).toBe('function')
-
-    expect(parseOutData).toBeDefined()
-    expect(typeof parseOutData).toBe('function')
   })
 
   test('computer object creation', async () => {
