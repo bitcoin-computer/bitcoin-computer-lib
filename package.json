@@ -26,13 +26,13 @@
     "bitcoinsource": "^0.1.19",
     "dotenv": "^10.0.0",
     "node-localstorage": "^2.1.6",
+    "eciesjs": "^0.3.9",
     "crypto-js": "^4.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.10.4",
     "@types/jest": "^27.0.2",
     "babel-jest": "^27.3.1",
-    "eciesjs": "^0.3.9",
     "jest": "^27.3.1",
     "jest-cli": "^27.3.1",
     "ts-jest": "^27.0.7"
