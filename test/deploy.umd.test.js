@@ -3,7 +3,7 @@ import { Computer } from '../bitcoin-computer.umd'
 const opts = {
   // use any bip39 passphrase, eg from https://iancoleman.io/bip39/
   seed: 'travel upgrade inside soda birth essence junk merit never twenty system opinion',
-  chain: 'BSV', //  'BSV' or 'BCH'
+  chain: 'LTC',
   network: 'testnet', // 'testnet' or 'mainnet'
 }
 
