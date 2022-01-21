@@ -22,7 +22,7 @@ You can find more information in the [Bitcoin Computer Docs](https://docs.bitcoi
 
 ## Quick start
 
-The easiest way to get started is to run the tests. If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object).
+The easiest way to get started is to run the tests. If you get an error have a look [here](#troubleshooting).
 
 ````
 git clone git@github.com:bitcoin-computer/bitcoin-computer-lib.git
@@ -72,7 +72,7 @@ node index.mjs
 ````
 
 
-If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object). Once the wallet is funded you will see:
+If you get an error have a look [here](#troubleshooting). Once the wallet is funded you will see:
 
 ```
 Counter {
@@ -131,9 +131,15 @@ npm i -g parcel
 parcel index.html
 ```
 
-## Fund Your Computer Object
+## Troubleshooting
 
-If you get an error message "Insufficient balance in address \<address\>" you need to fund the wallet inside the computer object.
+### Wallet is currently rescanning. Abort existing rescan or wait.
+
+When you use a seed phrase for the first time, the Bitcoin node needs to re-scan the blockchain. This usually takes around 10m but can take up to an hour. Just wait and try again.
+
+### Insufficient balance in address
+
+You need to fund the wallet inside the computer object.
 
 By default the Bitcoin Computer runs on Litecoin testnet. You can get free testnet coins from a [here](https://kuttler.eu/en/bitcoin/ltc/faucet/), [here](https://testnet-faucet.com/ltc-testnet/), or
 [here](https://testnet.help/en/ltcfaucet/testnet). Have a look at the [Bitcoin Computer Docs](https://bitcoin-computer.gitbook.io/docs/) for information
