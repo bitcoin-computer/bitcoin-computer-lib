@@ -53,7 +53,7 @@ class Counter {
 // run the smart contract
 ;(async () => {
   // create Bitcoin Computer wallet
-  const computer = new Computer()
+  const computer = new Computer({ seed: 'replace this seed' })
 
   // deploy a smart object
   const counter = await computer.new(Counter)
@@ -101,7 +101,7 @@ class Counter {
 
 
 ;(async () => {
-  const computer = new Computer()
+  const computer = new Computer({ seed: 'replace this seed' })
 
   const counter = await computer.new(Counter)
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`
