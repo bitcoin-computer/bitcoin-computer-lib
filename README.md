@@ -6,37 +6,33 @@
 
 *A Turing complete smart contract system for Bitcoin.*
 
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/bitcoin-computer/bitcoin-computer-lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bitcoin-computer/bitcoin-computer-lib/context:javascript) [![Total alerts](https://img.shields.io/lgtm/alerts/g/bitcoin-computer/bitcoin-computer-lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bitcoin-computer/bitcoin-computer-lib/alerts/)
+
 You can build fungible and non-fungible tokens (NFTs), games, social networks, stable coins, exchanges, casinos, auctions, voting, office applications, artificial intelligence, ... anything really. The main distinguishing features are
 
-* **Easy to Use.** Smart contracts are written in Javascript. Integrates seamlessly into web and mobile apps. Plus if you know Javascript you can now write smart contracts.
-* **Free computation.** On other blockchains almost all algorithms are prohibitively expensive. On Bitcoin *all algorithms have the same low cost*: the cost of a payment. This makes it possible, for the first time, to run compute intense algorithms as smart contracts.
-* **Pure Bitcoin.** The Bitcoin Computer does not depend on a side-chain and will soon depend only on Bitcoin. This drastically reduces the attack surface. Smart contracts will work as long as Bitcoin works.
-* **Off-Chain storage.** Which data needs to be stored on-chain vs securely hashed and off-chain is application dependent. We make it easy for the programmer to store data off-chain.
-* **Encryption.** Built to balance privacy with compliance: all smart contract data can be encrypted but flows of money are un-encrypted to enable AML.
-* **Cross-Chain**. We want the Bitcoin Computer to work on all Bitcoin-like currencies. *We are launching on Litecoin* and will add support for other currencies over time.
-* **Trustless.** You can run your own Bitcoin Computer Node to gain trustless access to the blockchain. You can deploy a node locally with one line of code thanks to Docker and we have a setup to deploy to AWS with ease (coming soon).
+* **Easy to Use.** A smart contract is a Javascript class.
+* **Free computation.** On other blockchains almost all algorithms are prohibitively expensive. On Bitcoin all algorithms have the same low cost: the cost of a payment. This makes it possible, for the first time, to run compute intense algorithms as smart contracts.
+* **Pure Bitcoin.** The Bitcoin Computer does not depend on a side-chain and will soon only depend on Bitcoin. Smart contracts will work as long as Bitcoin is available.
+* **Off-Chain storage.** Which data needs to be stored on-chain vs securely hashed and off-chain is application dependent. We make it easy for the programmer to store data off-chain on their own node.
+* **Encryption.** Built to balance privacy with compliance: all smart contract data can be encrypted but flows of money are un-encrypted.
+* **Cross-Chain**. We want the Bitcoin Computer to work on all Bitcoin-like currencies. We are launching on Litecoin and will add support for other currencies over time.
+* **Trustless.** You can run your own [Bitcoin Computer Node](https://github.com/bitcoin-computer/bitcoin-computer-node) to gain trustless access to the blockchain. You can deploy a node anywhere with one line of code through Docker and we have instructions for how to deploy to AWS.
 
-You can find more information in the [Bitcoin Computer Docs](https://docs.bitcoincomputer.io/)
+You can find more information in the [Bitcoin Computer Docs](https://docs.bitcoincomputer.io/).
 
 ## Quick start
 
-The easiest way to get started is to run and adapt the tests.
+The easiest way to get started is to run the tests. If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object).
 
 ````
-yarn init
-yarn add bitcoin-computer-lib
+git clone git@github.com:bitcoin-computer/bitcoin-computer-lib.git
 cd bitcoin-computer-lib
+yarn install
 yarn test
 ````
 
 ## Run in Node.js
 
-In an empty directory run
-````
-yarn init
-yarn add bitcoin-computer-lib
-cd bitcoin-computer-lib
-````
 Create file ``index.mjs``
 
 ```
@@ -57,7 +53,7 @@ class Counter {
 // run the smart contract
 ;(async () => {
   // create Bitcoin Computer wallet
-  const computer = new Computer({ seed: 'replace this seed' })
+  const computer = new Computer()
 
   // deploy a smart object
   const counter = await computer.new(Counter)
@@ -68,13 +64,15 @@ class Counter {
 })()
 ```
 
-Run the code using
-
+Then, execute the following in the same directory
 ````
-node --experimental-modules index.mjs
+yarn init -y
+yarn add bitcoin-computer-lib
+node index.mjs
 ````
 
-If you get an error "Insuffienct funds in \<address\>" have a look at Section <a href="#fund-your-computer">Fund Your Computer</a>. Once the wallet is funded you will see:
+
+If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object). Once the wallet is funded you will see:
 
 ```
 Counter {
@@ -86,39 +84,24 @@ Counter {
 
 ## Run in the Browser
 
-Create file `.babelrc`
-
-````
-{
-  "presets": [ "@babel/preset-env" ],
-  "plugins": [ [ "@babel/transform-runtime" ] ]
-}
-````
-
-Create file ``index.html``
-
-```
-<html>
-  <body>
-    <div id='el'></div>
-    <script src="./index.js"></script>
-  </body>
-</html>
-```
-
 Create file ``index.js``.
 
 ```
 import { Computer } from 'bitcoin-computer-lib'
 
 class Counter {
-  constructor() { this.n = 0 }
-  inc() { this.n += 1 }
+  constructor() {
+    this.n = 0
+  }
+
+  inc() {
+    this.n += 1
+  }
 }
 
 
 ;(async () => {
-  const computer = new Computer({ seed: 'replace this seed' })
+  const computer = new Computer()
 
   const counter = await computer.new(Counter)
   document.getElementById("el").innerHTML = `Counter is ${counter.n}`
@@ -128,14 +111,23 @@ class Counter {
 })()
 ```
 
+Create file ``index.html``
+
+```
+<html>
+  <body>
+    <div id='el'></div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
+```
+
 Run the following in an empty directory and open your browser at `http://localhost:1234`.
 
 ```
 npm init -y
-npm i -s bitcoin-computer
-npm i -g parcel-bundler
-npm i -s @babel/runtime
-npm i -d @babel/plugin-transform-runtime
+npm i -s bitcoin-computer-lib
+npm i -g parcel
 parcel index.html
 ```
 
@@ -162,11 +154,10 @@ Our prospectus road map is:
 * Fix all known security issues
 * Get security audit
 * Fix all issues discovered in audit
-* Launch long term support version
+* Launch secure version with long term support
 
-We plan to maintain backwards compatibility at the smart contract level from now on. This means you can start developing an application today and it will work on the long term support version without modifications.
+The interface to the Bitcoin Computer will not change so you can start developing an application now. When the stable version launches all you need to do is update the dependency.
 
-We will not maintain backward compatibility at the smart object level until the long term support version is launched. Until then smart objects (eg tokens) that are created under a specific version will only be guaranteed to work with the same version of the software.
 ## License
 
 [Attribution-NoDerivs 3.0 Unported](https://creativecommons.org/licenses/by-nd/3.0/)
