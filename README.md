@@ -4,25 +4,25 @@
 
 # Bitcoin Computer
 
-*A Turing complete smart contract system for Bitcoin.*
+*Turing Complete Smart Contracts for Bitcoin.*
 
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/bitcoin-computer/bitcoin-computer-lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bitcoin-computer/bitcoin-computer-lib/context:javascript) [![Total alerts](https://img.shields.io/lgtm/alerts/g/bitcoin-computer/bitcoin-computer-lib.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bitcoin-computer/bitcoin-computer-lib/alerts/)
 
-You can build fungible and non-fungible tokens (NFTs), games, social networks, stable coins, exchanges, casinos, auctions, voting, office applications, artificial intelligence, ... anything really. The main distinguishing features are
+A smart contract system for Bitcoin. You can build fungible and non-fungible tokens (NFTs), games, social networks, stable coins, exchanges, auctions, voting, office applications, artificial intelligence, ... anything really. We currently support Litecoin but will add more currencies soon.
 
-* **Easy to Use.** A smart contract is a Javascript class.
+* **Easy to Use.** A smart contract is a Javascript class. If you know JS you can write smart contracts.
 * **Free computation.** On other blockchains almost all algorithms are prohibitively expensive. On Bitcoin all algorithms have the same low cost: the cost of a payment. This makes it possible, for the first time, to run compute intense algorithms as smart contracts.
-* **Pure Bitcoin.** The Bitcoin Computer does not depend on a side-chain and will soon only depend on Bitcoin. Smart contracts will work as long as Bitcoin is available.
+* **Pure Bitcoin.** The Bitcoin Computer does not depend on a side-chain and depends only on Bitcoin. Smart contracts can only be taken down by taking Bitcoin down.
 * **Off-Chain storage.** Which data needs to be stored on-chain vs securely hashed and off-chain is application dependent. We make it easy for the programmer to store data off-chain on their own node.
 * **Encryption.** Built to balance privacy with compliance: all smart contract data can be encrypted but flows of money are un-encrypted.
 * **Cross-Chain**. We want the Bitcoin Computer to work on all Bitcoin-like currencies. We are launching on Litecoin and will add support for other currencies over time.
-* **Trustless.** You can run your own [Bitcoin Computer Node](https://github.com/bitcoin-computer/bitcoin-computer-node) to gain trustless access to the blockchain. You can deploy a node anywhere with one line of code through Docker and we have instructions for how to deploy to AWS.
+* **Trustless.** You can run your own [Bitcoin Computer Node](https://github.com/bitcoin-computer/bitcoin-computer-node) to gain trustless access to the blockchain. You can deploy a node anywhere through Docker and we have instructions for how to deploy to AWS.
 
 You can find more information in the [Bitcoin Computer Docs](https://docs.bitcoincomputer.io/).
 
 ## Quick start
 
-The easiest way to get started is to run the tests. If you get an error have a look [here](#troubleshooting).
+The easiest way to get started is to run the tests. If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object).
 
 ````
 git clone git@github.com:bitcoin-computer/bitcoin-computer-lib.git
@@ -72,7 +72,7 @@ node index.mjs
 ````
 
 
-If you get an error have a look [here](#troubleshooting). Once the wallet is funded you will see:
+If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object). Once the wallet is funded you will see:
 
 ```
 Counter {
@@ -122,7 +122,7 @@ Create file ``index.html``
 </html>
 ```
 
-Run the following in an empty directory and open your browser at `http://localhost:1234`.
+Run the following in an empty directory and open your browser at [http://localhost:1234](http://localhost:1234).
 
 ```
 npm init -y
@@ -131,19 +131,12 @@ npm i -g parcel
 parcel index.html
 ```
 
-## Troubleshooting
+## Fund Your Computer Object
 
-### Wallet is currently rescanning. Abort existing rescan or wait.
+If you get an error message "Insufficient balance in address \<address\>" you need to fund the wallet inside the computer object.
 
-When you use a seed phrase for the first time, the Bitcoin node needs to re-scan the blockchain. This usually takes around 10m but can take up to an hour. Just wait and try again.
-
-### Insufficient balance in address
-
-You need to fund the wallet inside the computer object.
-
-By default the Bitcoin Computer runs on Litecoin testnet. You can get free testnet coins from a [here](https://kuttler.eu/en/bitcoin/ltc/faucet/), [here](https://testnet-faucet.com/ltc-testnet/), or
-[here](https://testnet.help/en/ltcfaucet/testnet). Have a look at the [Bitcoin Computer Docs](https://bitcoin-computer.gitbook.io/docs/) for information
-on how to run Bitcoin Computer on mainnet
+By default the Bitcoin Computer runs on Litecoin testnet. You can get free testnet coins from a Litecoin testnet faucet [here](https://kuttler.eu/en/bitcoin/ltc/faucet/), [here](https://testnet-faucet.com/ltc-testnet/), or
+[here](https://testnet.help/en/ltcfaucet/testnet).
 
 
 We recommend generating a new seed phrase through a [BIP39 generator](https://iancoleman.io/bip39/).
