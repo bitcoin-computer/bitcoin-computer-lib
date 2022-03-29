@@ -1,4 +1,4 @@
-import { Computer } from '../bitcoin-computer.cjs'
+import { Computer } from '../bitcoin-computer-lib.cjs'
 
 const opts = {
   // use any bip39 passphrase, eg from https://iancoleman.io/bip39/
@@ -37,7 +37,7 @@ describe('Deployment smoke tests', () => {
     expect(counter).toEqual({
       _id: expect.any(String),
       _rev: expect.any(String),
-      _rootId: expect.any(String),
+      _root: expect.any(String),
       n: 3
     })
   }, 20000)
