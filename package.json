@@ -43,7 +43,7 @@
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "count": "./scripts/count-errors.sh",
     "prepare": "husky install",
-    "validate-push": ". scripts/validateBranch.sh"
+    "validate-push": ". scripts/validateBranch.sh && validate_branch"
   },
   "watch": {
     "test": "{src,test}/*.js",
