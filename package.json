@@ -42,7 +42,8 @@
     "postpublish": "git push origin master --follow-tags",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "count": "./scripts/count-errors.sh",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "validate-push": ". scripts/validateBranch.sh"
   },
   "watch": {
     "test": "{src,test}/*.js",
