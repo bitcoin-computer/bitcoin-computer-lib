@@ -1,56 +1,20 @@
 {
-  "name": "bitcoin-computer-lib",
-  "version": "0.7.4-beta",
+  "name": "bitcoin-computer-lib-secret",
+  "version": "0.7.5-beta",
   "description": "Smart Contracts for Bitcoin",
-  "license": "UNLICENSED",
-  "repository": "ClemensLey/token",
-  "main": "bitcoin-computer-lib.cjs.js",
+  "license": "CC-BY-ND-4.0",
+  "repository": "bitcoin-computer/bitcoin-computer-lib",
+  "main": "dist/src/bitcoin-computer-lib.cjs.js",
   "author": {
     "name": "Clemens Ley",
-    "email": "ley.clemens@gmail.com",
-    "url": "https://github.com/ClemensLey"
+    "email": "clemens@bitcoincomputer.io",
+    "url": "https://github.com/bitcoin-computer"
   },
   "engines": {
     "node": ">=6"
   },
   "files": [
     "dist"
-  ],
-  "scripts": {
-    "test": "yarn test-ltc-regtest",
-    "test-ltc-regtest": "CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 jest --setupFiles dotenv/config --config ./jest.config.json",
-    "test-async": "yarn test-async-ltc-regtest",
-    "test-async-ltc-regtest": "CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 jest --setupFiles dotenv/config --runInBand --config ./jest.async.config.json",
-    "coverage": "npm test -- --coverage",
-    "cp-files": "./scripts/cp-files.sh",
-    "postcoverage": "open-cli coverage/lcov-report/index.html",
-    "lint": "eslint src test",
-    "lint-fix": "eslint src test --fix",
-    "docs": "documentation readme src --section=API",
-    "clean": "rm -fr dist/*",
-    "rollup": "node --max-old-space-size=3072 node_modules/rollup/dist/bin/rollup -c",
-    "deploy": "yarn run clean && yarn run rollup && yarn run cp-files",
-    "prebuild": "npm run clean",
-    "build": "npm run rollup",
-    "decls": "tsc -p tsconfig.decls.json",
-    "types": "tsc -p tsconfig.types.json",
-    "watch": "npm-watch",
-    "patch": "npm version patch && npm publish",
-    "minor": "npm version minor && npm publish",
-    "major": "npm version major && npm publish",
-    "prepublish-only": "npm run lint && npm test && npm run build",
-    "postpublish": "git push origin master --follow-tags",
-    "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "count": "./scripts/count-errors.sh",
-    "prepare": "husky install"
-  },
-  "watch": {
-    "test": "{src,test}/*.js",
-    "lint": "{src,test}/*.js",
-    "build": "src"
-  },
-  "keywords": [
-    "generator-nod"
   ],
   "dependencies": {
     "axios": "^0.26.0",
@@ -94,5 +58,41 @@
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.0.4",
     "typescript": "^4.0.3"
-  }
+  },
+  "scripts": {
+    "test": "yarn test-ltc-regtest",
+    "test-ltc-regtest": "CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 jest --setupFiles dotenv/config --config ./jest.config.json",
+    "test-async": "yarn test-async-ltc-regtest",
+    "test-async-ltc-regtest": "CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 jest --setupFiles dotenv/config --runInBand --config ./jest.async.config.json",
+    "coverage": "npm test -- --coverage",
+    "cp-files": "./scripts/cp-files.sh",
+    "postcoverage": "open-cli coverage/lcov-report/index.html",
+    "lint": "eslint src test",
+    "lint-fix": "eslint src test --fix",
+    "docs": "documentation readme src --section=API",
+    "clean": "rm -fr dist/*",
+    "rollup": "node --max-old-space-size=3072 node_modules/rollup/dist/bin/rollup -c",
+    "deploy": "yarn run clean && yarn run rollup && yarn run cp-files",
+    "prebuild": "npm run clean",
+    "build": "npm run rollup",
+    "decls": "tsc -p tsconfig.decls.json",
+    "types": "tsc -p tsconfig.types.json",
+    "watch": "npm-watch",
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish",
+    "prepublish-only": "npm run lint && npm test && npm run build",
+    "postpublish": "git push origin master --follow-tags",
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "count": "./scripts/count-errors.sh",
+    "prepare": "husky install"
+  },
+  "watch": {
+    "test": "{src,test}/*.js",
+    "lint": "{src,test}/*.js",
+    "build": "src"
+  },
+  "keywords": [
+    "generator-nod"
+  ]
 }
