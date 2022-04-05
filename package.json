@@ -1,10 +1,10 @@
 {
-  "name": "bitcoin-computer-lib-secret",
-  "version": "0.7.5-beta",
+  "name": "bitcoin-computer-lib",
+  "version": "0.7.6-beta",
   "description": "Smart Contracts for Bitcoin",
   "license": "CC-BY-ND-4.0",
   "repository": "bitcoin-computer/bitcoin-computer-lib",
-  "main": "dist/src/bitcoin-computer-lib.cjs.js",
+  "main": "bitcoin-computer-lib.cjs.js",
   "author": {
     "name": "Clemens Ley",
     "email": "clemens@bitcoincomputer.io",
