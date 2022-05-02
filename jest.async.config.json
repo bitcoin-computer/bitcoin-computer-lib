@@ -1,6 +1,6 @@
 {
   "testEnvironment": "node",
-  "testRegex": "^.*.async-test.(js|ts|jsx|tsx)$",
+  "testRegex": "^.*.async-test.ts$",
   "transform": {
     ".+\\.(js|jsx)$": "babel-jest",
     ".+\\.(ts|tsx)$": "ts-jest"

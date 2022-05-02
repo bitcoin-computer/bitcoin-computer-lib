@@ -1,6 +1,6 @@
 {
   "testEnvironment": "node",
-  "testMatch": ["**/test/**/*.test.(ts|js)"],
+  "testMatch": ["**/test/**/*.test.js"],
   "testPathIgnorePatterns": [
     "/node_modules/",
     "/dist/"
