@@ -1,11 +1,13 @@
 {
   "testEnvironment": "node",
-  "testMatch": ["**/test/**/*.test.(ts|js)"],
+  "testMatch": ["**/test/**/*.test.js"],
   "testPathIgnorePatterns": [
     "/node_modules/",
     "/dist/"
   ],
-  "testURL": "http://localhost/",
+  "testEnvironmentOptions": {
+    "url": "http://localhost/"
+  },
   "transform": {
     ".+\\.(js|jsx)$": "babel-jest",
     ".+\\.(ts|tsx)$": "ts-jest"

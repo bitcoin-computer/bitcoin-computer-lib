@@ -1,6 +1,6 @@
 {
   "name": "bitcoin-computer-lib",
-  "version": "0.7.6-beta",
+  "version": "0.8.0-beta",
   "description": "Smart Contracts for Bitcoin",
   "license": "CC-BY-ND-4.0",
   "repository": "bitcoin-computer/bitcoin-computer-lib",
@@ -17,7 +17,7 @@
     "dist"
   ],
   "dependencies": {
-    "axios": "^0.26.0",
+    "axios": "^0.27.2",
     "bitcoin-computer-bitcore": "^0.1.23",
     "crypto-js": "^4.0.0",
     "dotenv": "^16.0.0",
@@ -31,7 +31,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@rollup/plugin-babel": "^5.1.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@types/crypto-js": "^4.0.1",
@@ -40,7 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^27.0.6",
+    "babel-jest": "^28.0.3",
     "bitcoind-rpc": "^0.9.1",
     "eslint": "^8.7.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -50,13 +50,13 @@
     "eslint-plugin-prettier": "^4.0.0",
     "hash.js": "^1.1.7",
     "husky": "^7.0.4",
-    "jest": "^27.0.6",
+    "jest": "^28.0.3",
     "jest-localstorage-mock": "^2.4.19",
     "npm-watch": "^0.11.0",
     "prettier": "^2.1.2",
     "rollup": "^2.36.1",
     "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^27.0.4",
+    "ts-jest": "^28.0.1",
     "typescript": "^4.0.3"
   },
   "scripts": {
@@ -66,13 +66,14 @@
     "test-async-ltc-regtest": "CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 jest --setupFiles dotenv/config --runInBand --config ./jest.async.config.json",
     "coverage": "npm test -- --coverage",
     "cp-files": "./scripts/cp-files.sh",
+    "lib-clean": "./scripts/lib-clean.sh",
     "postcoverage": "open-cli coverage/lcov-report/index.html",
     "lint": "eslint src test",
     "lint-fix": "eslint src test --fix",
     "docs": "documentation readme src --section=API",
     "clean": "rm -fr dist/*",
     "rollup": "node --max-old-space-size=3072 node_modules/rollup/dist/bin/rollup -c",
-    "deploy": "yarn run clean && yarn run rollup && yarn run cp-files",
+    "deploy": "yarn run lib-clean && yarn run clean && yarn run rollup && yarn run cp-files",
     "prebuild": "npm run clean",
     "build": "npm run rollup",
     "decls": "tsc -p tsconfig.decls.json",
@@ -85,7 +86,8 @@
     "postpublish": "git push origin master --follow-tags",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "count": "./scripts/count-errors.sh",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "validate-branch": ". scripts/validate-branch.sh && validate_branch"
   },
   "watch": {
     "test": "{src,test}/*.js",
