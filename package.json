@@ -4,7 +4,7 @@
   "description": "Smart Contracts for Bitcoin",
   "license": "CC-BY-ND-4.0",
   "repository": "bitcoin-computer/bitcoin-computer-lib",
-  "main": "bitcoin-computer-lib.cjs.js",
+  "main": "dist/src/bitcoin-computer-lib.cjs.js",
   "author": {
     "name": "Clemens Ley",
     "email": "clemens@bitcoincomputer.io",
@@ -16,13 +16,18 @@
   "files": [
     "dist"
   ],
+  "type": "module",
   "dependencies": {
+    "@babel/core": "^7.18.0",
+    "@endo/static-module-record": "^0.7.4",
     "axios": "^0.27.2",
     "bitcoin-computer-bitcore": "^0.1.23",
+    "bitcoind-rpc": "^0.9.1",
     "crypto-js": "^4.0.0",
     "dotenv": "^16.0.0",
     "eccrypto": "^1.1.3",
     "eciesjs": "^0.3.9",
+    "exponential-backoff": "^3.1.0",
     "ses": "^0.15.9",
     "tweetnacl": "^1.0.3",
     "tweetnacl-util": "^0.15.1"
@@ -34,14 +39,18 @@
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-typescript": "^8.0.0",
+    "@types/bitcoin-computer-bitcore": "^0.1.0",
+    "@types/chai": "^4.3.1",
     "@types/crypto-js": "^4.0.1",
     "@types/eccrypto": "^1.1.1",
-    "@types/jest": "^27.0.2",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^9.1.1",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^28.0.3",
     "bitcoind-rpc": "^0.9.1",
+    "chai": "^4.3.6",
+    "chai-exclude": "^2.1.0",
     "eslint": "^8.7.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.1.0",
@@ -50,20 +59,18 @@
     "eslint-plugin-prettier": "^4.0.0",
     "hash.js": "^1.1.7",
     "husky": "^7.0.4",
-    "jest": "^28.0.3",
-    "jest-localstorage-mock": "^2.4.19",
+    "mocha": "^10.0.0",
+    "mock-local-storage": "^1.1.22",
     "npm-watch": "^0.11.0",
     "prettier": "^2.1.2",
     "rollup": "^2.36.1",
     "rollup-plugin-terser": "^7.0.2",
-    "ts-jest": "^28.0.1",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.7.0",
     "typescript": "^4.0.3"
   },
   "scripts": {
     "test": "yarn test-ltc-regtest",
-    "test-ltc-regtest": "CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 jest --setupFiles dotenv/config --config ./jest.config.json",
-    "test-async": "yarn test-async-ltc-regtest",
-    "test-async-ltc-regtest": "CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 jest --setupFiles dotenv/config --runInBand --config ./jest.async.config.json",
     "coverage": "npm test -- --coverage",
     "cp-files": "./scripts/cp-files.sh",
     "lib-clean": "./scripts/lib-clean.sh",
@@ -73,7 +80,6 @@
     "docs": "documentation readme src --section=API",
     "clean": "rm -fr dist/*",
     "rollup": "node --max-old-space-size=3072 node_modules/rollup/dist/bin/rollup -c",
-    "deploy": "yarn run lib-clean && yarn run clean && yarn run rollup && yarn run cp-files",
     "prebuild": "npm run clean",
     "build": "npm run rollup",
     "decls": "tsc -p tsconfig.decls.json",
@@ -87,7 +93,13 @@
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "count": "./scripts/count-errors.sh",
     "prepare": "husky install",
-    "validate-branch": ". scripts/validate-branch.sh && validate_branch"
+    "validate-branch": ". scripts/validate-branch.sh && validate_branch",
+    "test-mocha-btc": "CHAIN=BTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 mocha --config .mocharc.json",
+    "test-mocha-ltc": "RPC_HOST=127.0.0.1 RPC_PORT=19332 RPC_PROTOCOL=http RPC_USER=bcn-admin RPC_PASSWORD=kH4nU5Okm6-uyC0_mA5ztVNacJqZbYd_KGLl6mx722A= CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 mocha --config .mocharc.json",
+    "test-async-mocha-btc": "RPC_HOST=127.0.0.1 RPC_PORT=8332 RPC_PROTOCOL=http  RPC_USER=bcn-admin RPC_PASSWORD=kH4nU5Okm6-uyC0_mA5ztVNacJqZbYd_KGLl6mx722A= CHAIN=BTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 mocha --config .mocharc-async.json --parallel",
+    "test-async-mocha-ltc": "RPC_HOST=127.0.0.1 RPC_PORT=19332 RPC_PROTOCOL=http  RPC_USER=bcn-admin RPC_PASSWORD=kH4nU5Okm6-uyC0_mA5ztVNacJqZbYd_KGLl6mx722A= CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 mocha --config .mocharc-async.json --parallel",
+    "test-single-mocha-btc": "RPC_HOST=127.0.0.1 RPC_PORT=8332 RPC_PROTOCOL=http RPC_USER=bcn-admin RPC_PASSWORD=kH4nU5Okm6-uyC0_mA5ztVNacJqZbYd_KGLl6mx722A= CHAIN=BTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 mocha --config .mocharc-single.json",
+    "test-single-mocha-ltc": "RPC_HOST=127.0.0.1 RPC_PORT=19332 RPC_PROTOCOL=http RPC_USER=bcn-admin RPC_PASSWORD=kH4nU5Okm6-uyC0_mA5ztVNacJqZbYd_KGLl6mx722A= CHAIN=LTC NETWORK=regtest BCN_URL=http://127.0.0.1:3000 mocha --config .mocharc-single.json"
   },
   "watch": {
     "test": "{src,test}/*.js",
@@ -96,5 +108,8 @@
   },
   "keywords": [
     "generator-nod"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

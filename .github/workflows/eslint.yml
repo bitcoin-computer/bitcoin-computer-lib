@@ -25,4 +25,4 @@ jobs:
     - run: yarn run types
     - run: yarn run rollup
     - run: yarn run lint
-    - run: yarn run test-ltc-regtest
+    - run: yarn run test-mocha-btc
