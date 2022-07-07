@@ -1,0 +1,4 @@
+{
+  "require": ["dotenv/config", "ts-node/register"],
+  "timeout": "30000000"
+}
