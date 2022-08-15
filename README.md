@@ -10,19 +10,19 @@
 
 A smart contract system for Bitcoin. You can build fungible and non-fungible tokens (NFTs), games, social networks, stable coins, exchanges, auctions, voting, office applications, artificial intelligence, ... anything really. We currently support Litecoin but will add more currencies soon.
 
-* **Easy to learn.** A smart contract is a Javascript class. If you know Javascript you can write smart contracts.
-* **Free computation.** On other blockchains almost all algorithms are prohibitively expensive. On Bitcoin all algorithms have the same low cost: the cost of a payment. This makes it possible, for the first time, to run compute intense algorithms as smart contracts.
-* **Pure Bitcoin.** The Bitcoin Computer does not depend on a side-chain and depends only on Bitcoin. Smart contracts can only be taken down by taking Bitcoin down.
-* **Off-Chain storage.** Which data needs to be stored on-chain vs securely hashed and off-chain is application dependent. We make it easy for the programmer to store data off-chain on their own node.
-* **Encryption.** Built to balance privacy with compliance: all smart contract data can be encrypted but flows of money are un-encrypted.
+* **Easy to learn.** A smart contract is a Javascript class. If you know Javascript, you can write smart contracts.
+* **Free computation.** On other blockchains, almost all algorithms are prohibitively expensive. However, on Bitcoin, all algorithms have the same low cost: the cost of a payment. This makes it possible, for the first time, to run computationally intense algorithms as smart contracts.
+* **Pure Bitcoin.** The Bitcoin Computer does not depend on a side-chain but only on Bitcoin. Smart contracts can only be taken down by taking Bitcoin down.
+* **Off-Chain storage.** Deciding on which data to be stored on-chain vs securely hashed and off-chain is application dependent. We make it easy for the programmers to store data off-chain on their own node.
+* **Encryption.** Built to balance privacy with compliance: all smart contract data can be encrypted, but flows of money are unencrypted.
 * **Cross-Chain**. We want the Bitcoin Computer to work on all Bitcoin-like currencies. We are launching on Litecoin and will add support for other currencies over time.
-* **Trustless.** You can run your own [Bitcoin Computer Node](https://www.npmjs.com/package/bitcoin-computer-node) to gain trustless access to the blockchain. You can deploy a node anywhere through Docker and we have instructions for how to deploy to AWS.
+* **Trustless.** You can run your own [Bitcoin Computer Node](https://www.npmjs.com/package/bitcoin-computer-node) to gain trustless access to the blockchain. You can deploy a node anywhere through Docker, and we have instructions for how to deploy to AWS.
 
 You can find more information in the [Bitcoin Computer Docs](https://docs.bitcoincomputer.io/).
 
 ## Quick start
 
-The easiest way to get started is to run the tests. If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object).
+The easiest way to get started is to run the tests. If you get an error "Insufficient funds," have a look [here](#fund-your-computer-object).
 
 ````
 git clone git@github.com:bitcoin-computer/bitcoin-computer-lib.git
@@ -33,7 +33,7 @@ yarn test
 
 ## Run in Node.js
 
-Create file ``index.mjs``
+Create file ``index.mjs``.
 
 ```
 import { Computer } from 'bitcoin-computer-lib'
@@ -64,7 +64,7 @@ class Counter {
 })()
 ```
 
-Then, execute the following in the same directory
+Then, execute the following in the same directory.
 ````
 yarn init -y
 yarn add bitcoin-computer-lib
@@ -72,7 +72,7 @@ node index.mjs
 ````
 
 
-If you get an error "Insufficient funds" have a look [here](#fund-your-computer-object). Once the wallet is funded you will see:
+If you get an error "Insufficient funds," have a look [here](#fund-your-computer-object). Once the wallet is funded, you will see:
 
 ```
 Counter {
@@ -111,7 +111,7 @@ class Counter {
 })()
 ```
 
-Create file ``index.html``
+Create file ``index.html``.
 
 ```
 <html>
@@ -122,7 +122,7 @@ Create file ``index.html``
 </html>
 ```
 
-Run the following in an empty directory and open your browser at [http://localhost:1234](http://localhost:1234).
+Run the following in an empty directory, and open your browser at [http://localhost:1234](http://localhost:1234).
 
 ```
 npm init -y
@@ -133,9 +133,9 @@ parcel index.html
 
 ## Fund Your Computer Object
 
-If you get an error message "Insufficient balance in address \<address\>" you need to fund the wallet inside the computer object.
+If you get an error message "Insufficient balance in address \<address\>," you need to fund the wallet inside the computer object.
 
-By default the Bitcoin Computer runs on Litecoin testnet. You can get free testnet coins from a Litecoin testnet faucet [here](https://kuttler.eu/en/bitcoin/ltc/faucet/), [here](https://testnet-faucet.com/ltc-testnet/), or
+By default, the Bitcoin Computer runs on Litecoin testnet. You can get free testnet coins from a Litecoin testnet faucet [here](https://kuttler.eu/en/bitcoin/ltc/faucet/), [here](https://testnet-faucet.com/ltc-testnet/), or
 [here](https://testnet.help/en/ltcfaucet/testnet).
 
 
@@ -144,24 +144,24 @@ We recommend generating a new seed phrase through a [BIP39 generator](https://ia
 
 ## Documentation and Help
 
-Have a look at the [Bitcoin Computer Docs](https://bitcoin-computer.gitbook.io/docs/), ask in our [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg),  or [create an issue](https://github.com/bitcoin-computer/computer/issues).
+Have a look at the [Bitcoin Computer Docs](https://bitcoin-computer.gitbook.io/docs/), ask in our [Telegram Group](https://t.me/joinchat/FMrjOUWRuUkNuIt7zJL8tg), or [create an issue](https://github.com/bitcoin-computer/computer/issues).
 
 ## Beta Warning
 
-This software has been carefully developed over four years by a qualified team. However it has not been security reviewed and we cannot guarantee the absence of bugs. Bugs can lead to the loss of funds. We do not recommend to use this software in production yet. Use at your own risk.
+This software has been carefully developed over four years by a qualified team. However, it has not been security-reviewed, and we cannot guarantee the absence of bugs. Bugs can lead to the loss of funds. We do not recommend using this software in production yet. Use at your own risk.
 
 We will remove the beta-tag once we have completed a security review.
 
 ## Road Map
 
-Our prospectus road map is:
+Our prospectus road map is to:
 
 * Fix all known security issues (getting close but not there yet)
 * Get security audit
 * Fix all issues discovered in audit
 * Launch secure version with long term support
 
-The interface to the Bitcoin Computer will not change so you can start developing applications now. When the security reviewed version lands all you need to do is update the dependency.
+The interface to the Bitcoin Computer will not change, so you can start developing applications now. When the security-reviewed version lands, all you need to do is update the dependency.
 
 ## Price
 
@@ -173,24 +173,23 @@ The Bitcoin Computer will be free forever on testnet.
 
 You can run an application on mainnet using your own [Bitcoin Computer Node](https://www.npmjs.com/package/bitcoin-computer-node). The Bitcoin Computer charges either the dust limit or the sum of
 * 0.1% of the amount being sent,
-* a fixed-low-fee (as defined below) per smart object creation and update. This fee applies to nested objects, so if you update a smart object an one of it's sub-objects you have to pay two fixed-low-fee's. The fee does not apply to objects that can be garbage collected.
+* a fixed-low-fee (as defined below) per smart object creation and update. This fee applies to nested objects, so if you update a smart object an one of its sub-objects, you need pay two fixed-low-fees. The fee does not apply to objects that can be garbage-collected.
 
-The fixed-low-fee is calibrated to be around one USD cent on average. It depends on the chain. Specifically
+The fixed-low-fee is calibrated to be around one USD cent on average. It depends on the chain. Specifically,
 * on LTC the fixed-low-fee is 8000 satoshi
 * on BCH the fixed-low-fee is 2700 satoshi
 * on DOGE the fixed-low-fee is 7000000 satoshi
 * on BTC the fixed-low-fee is 22 satoshi
 
-This percentage is baked into every version of the Bitcoin Computer. All fees are automatically computed and collected by the Bitcoin Computer software. No action is required from the developer in order to pay the fees.
+This percentage is baked into every version of the Bitcoin Computer. All fees are automatically computed and collected by the Bitcoin Computer software. No action is required from the developers in order to pay the fees.
 
 ## License
 
 [Attribution-NoDerivs 3.0 Unported](https://creativecommons.org/licenses/by-nd/3.0/)
 
-You are free to: Share, copy, and redistribute the material in any medium or format
-for any purpose, even commercially under the following terms:
+You are free to: share, copy, and redistribute the material in any medium or format for any purpose, even commercially, under the following terms:
 
-* Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-* NoDerivatives — If you remix, transform, or build upon the material, you may not distribute the modified material.
+* Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes are made. You may do so in any reasonable manner but not in any way that suggests the licensor endorses you or your use.
+* No Derivatives — If you remix, transform, or build upon the material, you may not distribute the modified material.
 
 This is a human-readable summary of (and not a substitute for) the [license](https://creativecommons.org/licenses/by-nd/3.0/legalcode).
