@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn run validate-branch
+yarn run test-ltc-regtest
